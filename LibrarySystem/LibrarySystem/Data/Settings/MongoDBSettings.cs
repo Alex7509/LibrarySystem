@@ -1,6 +1,6 @@
 ﻿namespace LibrarySystem.Data.Settings
 {
-    public class MongoDBSettings
+    public class MongoDbSettings
     {
         public string ConnectionString { get; set; } = null!;
 
