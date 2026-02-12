@@ -1,11 +1,15 @@
-using Serilog;
+using FluentValidation;
 using LibrarySystem.Business.Interfaces;
 using LibrarySystem.Business.Services;
+using LibrarySystem.Common.Validators;
 using LibrarySystem.Data.Interfaces;
 using LibrarySystem.Data.Repositories;
 using LibrarySystem.Data.Settings;
+using Serilog;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Serilog configuration
 Log.Logger = new LoggerConfiguration()
@@ -33,6 +37,8 @@ builder.Services.AddSwaggerGen();
 
 // HealthCheck
 builder.Services.AddHealthChecks();
+
+builder.Services.AddValidatorsFromAssemblyContaining<AddBookValidator>();
 
 var app = builder.Build();
 
