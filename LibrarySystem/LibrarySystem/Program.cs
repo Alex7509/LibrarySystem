@@ -1,6 +1,7 @@
 using FluentValidation;
 using LibrarySystem.Business.Interfaces;
 using LibrarySystem.Business.Services;
+using LibrarySystem.Common.Mappings;
 using LibrarySystem.Common.Validators;
 using LibrarySystem.Data.Interfaces;
 using LibrarySystem.Data.Repositories;
@@ -39,6 +40,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks();
 
 builder.Services.AddValidatorsFromAssemblyContaining<AddBookValidator>();
+
+MappingConfig.RegisterMappings();
 
 var app = builder.Build();
 
